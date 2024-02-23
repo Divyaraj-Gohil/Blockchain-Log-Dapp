@@ -1,0 +1,20 @@
+.form-control{
+   margin: 8px;
+   height: 25px;
+   width: 300px;
+
+}
+.main{
+    margin: 5px;
+    padding: 10px;
+    background-color: rgb(195, 196, 196);
+    height: 200px;
+    width: 800px;
+    border: 3px solid black;
+    border-radius: 20px;
+    margin-left: 215px;
+
+}
+.btn{
+    margin-top: 15px;
+}
