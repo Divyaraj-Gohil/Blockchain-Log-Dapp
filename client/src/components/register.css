@@ -1,20 +1,27 @@
 .form-control{
    margin: 8px;
    height: 25px;
-   width: 300px;
-
+   width: 275px;
+   text-align: center;
+   margin-right: 5px;
+   border-radius: 10px;
 }
 .main{
-    margin: 5px;
     padding: 10px;
     background-color: rgb(195, 196, 196);
-    height: 200px;
-    width: 800px;
+    height: 15%;
     border: 3px solid black;
     border-radius: 20px;
-    margin-left: 215px;
-
+    margin: 0 auto;
+    width: 50%;
+    box-shadow: 0 0 10px black;
 }
 .btn{
     margin-top: 15px;
+    background-color:  white;
+}
+.btn:hover{
+    background-color: 	#87fda6d9;
+    border-color: white;
+    box-shadow: 0 0 2px black;
 }

@@ -11,7 +11,7 @@ function App() {
     signer: null,
     contract: null,
   });
-  const [account, setAccount] = useState("None");
+  const [account, setAccount] = useState("Not connected");
   useEffect(() => {
     const connectWallet = async () => {
       const contractAddress = "0x089E18E69ac03885110Cfd875EEA788f90EC0ACF";

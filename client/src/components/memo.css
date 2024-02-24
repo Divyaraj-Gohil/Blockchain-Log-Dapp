@@ -1,0 +1,174 @@
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+td{
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+    background-color: #4cffa8;
+}
+#nametable{
+    width: 10%;
+}
+#timestamp{
+    width: 30%;
+}
+#address{
+    width: 30%;
+}
+#detail{
+    width: 15%;
+}
+#pur{
+    width: 15%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* <table>
+      <thead>
+                <tr>
+                    <td
+                    style={{
+                        backgroundColor: "#4ca8ff",
+                        border: "1px solid white",
+                        borderCollapse: "collapse",
+                        padding: "7px",
+                        width: "100px",
+                        color:"white",
+                      }}><big>Name</big></td>
+                      <td
+                    style={{
+                      backgroundColor: "#4ca8ff",
+                      border: "1px solid white",
+                      borderCollapse: "collapse",
+                      padding: "7px",
+                      width: "800px",
+                      color:"white",
+                    }}
+                  ><big>
+                   Time-stamp </big>
+                  </td>
+
+                    <td
+                    style={{
+                        backgroundColor: "#4ca8ff",
+                        border: "1px solid white",
+                        borderCollapse: "collapse",
+                        padding: "7px",
+                        width: "300px",
+                        color:"white",
+                      }}
+                    
+                    ><big>ContactDetails</big></td>
+
+                    <td
+                    style={{
+                        backgroundColor: "#4ca8ff",
+                        border: "1px solid white",
+                        borderCollapse: "collapse",
+                        padding: "7px",
+                        width: "400px",
+                        color:"white",
+                      }}
+
+                    ><big>WalletAddress</big></td>
+
+                    <td
+                    style={{
+                        backgroundColor: "#4ca8ff",
+                        border: "1px solid white",
+                        borderCollapse: "collapse",
+                        padding: "7px",
+                        width: "400px",
+                        color:"white",
+                      }}
+                    ><big>Purpose</big></td>
+                </tr>
+                 </thead>
+      </table> */
+
+
+
+
+
+
+
+
+
+/* <table
+style={{
+  marginBottom: "10px",
+}}
+>     
+<tbody>
+  <tr>
+    <td
+      style={{
+        backgroundColor:"#4cffa8",
+        border: "1px solid white",
+        borderCollapse: "collapse",
+        padding: "7px",
+        width: "100px",
+      }}
+    >
+      {memo.name}
+    </td>
+    <td
+      style={{
+        backgroundColor: "#4cffa8",
+        border: "1px solid white",
+        borderCollapse: "collapse",
+        padding: "7px",
+        width: "800px",
+      }}
+    >
+     {dateobj}
+    </td>
+    <td
+      style={{
+          backgroundColor: "#4cffa8",
+          border: "1px solid white",
+          borderCollapse: "collapse",
+          padding: "7px",
+          width: "300px",
+        }}
+    >
+      {memo.contactDetails}
+    </td>
+    <td
+      style={{
+        backgroundColor: "#4cffa8",
+        border: "1px solid white",
+        borderCollapse: "collapse",
+        padding: "7px",
+        width: "400px",
+      }}
+    >
+      {memo.walletAddress}
+    </td>
+    <td
+      style={{
+        backgroundColor: "#4cffa8",
+        border: "1px solid white",
+        borderCollapse: "collapse",
+        padding: "7px",
+        width: "400px",
+      }}
+    >
+      {memo.purpose}
+    </td>
+  </tr>
+</tbody>
+</table> */ 

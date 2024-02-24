@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./memo.css";
 const Memos = ({ state }) => {
   const [visitors, setvisitors] = useState([]);
   const { contract } = state;
@@ -10,133 +11,41 @@ const Memos = ({ state }) => {
     };
     contract && memosMessage();
   }, [contract]);
+  const obj = visitors;
 
   return (
     <>
       <p style={{ textAlign: "center", marginTop: "20px" }}><big>Records</big></p>
       <table>
-      <thead>
-                <tr>
-                    <td
-                    style={{
-                        backgroundColor: "#4ca8ff",
-                        border: "1px solid white",
-                        borderCollapse: "collapse",
-                        padding: "7px",
-                        width: "100px",
-                        color:"white",
-                      }}><big>Name</big></td>
-
-                    <td
-                    style={{
-                        backgroundColor: "#4ca8ff",
-                        border: "1px solid white",
-                        borderCollapse: "collapse",
-                        padding: "7px",
-                        width: "300px",
-                        color:"white",
-                      }}
-                    
-                    ><big>ContactDetails</big></td>
-
-                    <td
-                    style={{
-                        backgroundColor: "#4ca8ff",
-                        border: "1px solid white",
-                        borderCollapse: "collapse",
-                        padding: "7px",
-                        width: "400px",
-                        color:"white",
-                      }}
-
-                    ><big>WalletAddress</big></td>
-
-                    <td
-                    style={{
-                        backgroundColor: "#4ca8ff",
-                        border: "1px solid white",
-                        borderCollapse: "collapse",
-                        padding: "7px",
-                        width: "400px",
-                        color:"white",
-                      }}
-                    ><big>Purpose</big></td>
-                </tr>
-                 </thead>
+        <thead>
+          <tr>
+            <td style={{width:"10%",backgroundColor:"#4ca8ff"}}><big>Name</big></td>
+            <td style={{width:"15%",backgroundColor:"#4ca8ff"}}><big>ContactDetails</big></td>
+            <td style={{width:"15%",backgroundColor:"#4ca8ff"}}><big>Purpose</big></td>
+            <td style={{width:"30%",backgroundColor:"#4ca8ff"}}><big>Time-stamp</big></td>
+            <td style={{width:"30%",backgroundColor:"#4ca8ff"}}><big>WalletAddress</big></td>
+          </tr>
+        </thead>
       </table>
-      {visitors.map((memo) => {
+      {visitors.toReversed().map((memo) => {
+        const timestamp = BigInt(memo.timestamp);
+        const dateobj = new Date(Number(timestamp * 1000n)).toString();
         return (
-          
           <div
-            className="container-fluid"
-            style={{ width: "100%" }}
-            key={Math.random()}
-          >
-            <table
-              style={{
-                marginBottom: "10px",
-              }}
-            >     
+          key={Math.random()}>
+           <div>
+            <table>
               <tbody>
-                <tr>
-                  <td
-                    style={{
-                      backgroundColor:"#4cffa8",
-                      border: "1px solid white",
-                      borderCollapse: "collapse",
-                      padding: "7px",
-                      width: "100px",
-                    }}
-                  >
-                    {memo.name}
-                  </td>
-                  {/* <td
-                    style={{
-                      backgroundColor: "#4cffa8",
-                      border: "1px solid white",
-                      borderCollapse: "collapse",
-                      padding: "7px",
-                      width: "800px",
-                    }}
-                  >
-                   {new Date(BigInt(memo.timestamp * 1000)).toLocaleDateString()}
-                  </td> */}
-                  <td
-                    style={{
-                        backgroundColor: "#4cffa8",
-                        border: "1px solid white",
-                        borderCollapse: "collapse",
-                        padding: "7px",
-                        width: "300px",
-                      }}
-                  >
-                    {memo.contactDetails}
-                  </td>
-                  <td
-                    style={{
-                      backgroundColor: "#4cffa8",
-                      border: "1px solid white",
-                      borderCollapse: "collapse",
-                      padding: "7px",
-                      width: "400px",
-                    }}
-                  >
-                    {memo.walletAddress}
-                  </td>
-                  <td
-                    style={{
-                      backgroundColor: "#4cffa8",
-                      border: "1px solid white",
-                      borderCollapse: "collapse",
-                      padding: "7px",
-                      width: "400px",
-                    }}
-                  >
-                    {memo.purpose}
-                  </td>
-                </tr>
+              <tr>
+                <td id="nametable">{memo.name}</td>
+                <td id="detail">{memo.contactDetails}</td>
+                <td id="pur">{memo.purpose}</td>
+                <td id="timestamp">{dateobj}</td>
+                <td id="Address">{memo.walletAddress}</td>
+              </tr>
               </tbody>
             </table>
+           </div>
           </div>
         );
       })}

@@ -10,13 +10,13 @@ const register = ({ state }) => {
     const amount = { value: ethers.parseEther("0.01") };
     const transaction = await contract.registerVisitor(name, contactDetails, purpose , amount);
     await transaction.wait();
-    console.log("Transaction is done");
+    alert("Transaction is done");
   };
   return (
     <>
-      <div className="container-md" style={{ width: "50%", marginTop: "25px" }}>
+      <div className="container-md">
         <form onSubmit={registerVisitor}>
-            <div className="main">
+         <div className="main">
           <div className="mb-3">
             <label className="form-label" htmlFor="name">Name : </label>
             <input
