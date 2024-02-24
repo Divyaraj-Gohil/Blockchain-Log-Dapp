@@ -7,15 +7,16 @@ const register = ({ state }) => {
     const name = document.querySelector("#name").value;
     const contactDetails = document.querySelector("#contactDetails").value;
     const purpose = document.querySelector("#purpose").value;
-    const amount = { value: ethers.parseEther("0.01") };
+    const amount = { value: ethers.parseEther("0.001") };
     const transaction = await contract.registerVisitor(name, contactDetails, purpose , amount);
     await transaction.wait();
+    document.getElementById("form").reset();
     alert("Transaction is done");
   };
   return (
     <>
       <div className="container-md">
-        <form onSubmit={registerVisitor}>
+        <form id="form" onSubmit={registerVisitor}>
          <div className="main">
           <div className="mb-3">
             <label className="form-label" htmlFor="name">Name : </label>
@@ -24,6 +25,7 @@ const register = ({ state }) => {
               className="form-control"
               id="name"
               placeholder="Enter Your Name"
+              required
             />
           </div>
           <div className="mb-3">
@@ -33,6 +35,7 @@ const register = ({ state }) => {
               className="form-control"
               id="contactDetails"
               placeholder="Enter Your Details"
+              required
             />
           </div>
           <div className="mb-3">
@@ -42,6 +45,7 @@ const register = ({ state }) => {
               className="form-control"
               id="purpose"
               placeholder="Enter Your Purpose"
+              required
             />
           </div>
           <button

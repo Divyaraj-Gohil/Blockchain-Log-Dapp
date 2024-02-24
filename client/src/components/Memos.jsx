@@ -19,36 +19,36 @@ const Memos = ({ state }) => {
       <table>
         <thead>
           <tr>
-            <td style={{width:"10%",backgroundColor:"#4ca8ff"}}><big>Name</big></td>
-            <td style={{width:"15%",backgroundColor:"#4ca8ff"}}><big>ContactDetails</big></td>
-            <td style={{width:"15%",backgroundColor:"#4ca8ff"}}><big>Purpose</big></td>
-            <td style={{width:"30%",backgroundColor:"#4ca8ff"}}><big>Time-stamp</big></td>
-            <td style={{width:"30%",backgroundColor:"#4ca8ff"}}><big>WalletAddress</big></td>
+            <td className="tablename" style={{backgroundColor:"#4ca8ff"}}><big>Name</big></td>
+            {/* <td style={{width:"15%",backgroundColor:"#4ca8ff"}}><big>ContactDetails</big></td>
+            <td style={{width:"15%",backgroundColor:"#4ca8ff"}}><big>Purpose</big></td> */}
+            <td className="tabletime" style={{backgroundColor:"#4ca8ff"}}><big>Time-stamp</big></td>
+            <td className="tableadd" style={{backgroundColor:"#4ca8ff"}}><big>WalletAddress</big></td>
           </tr>
         </thead>
       </table>
+      <div className="scroll">
       {visitors.toReversed().map((memo) => {
         const timestamp = BigInt(memo.timestamp);
         const dateobj = new Date(Number(timestamp * 1000n)).toString();
         return (
           <div
           key={Math.random()}>
-           <div>
             <table>
               <tbody>
               <tr>
-                <td id="nametable">{memo.name}</td>
-                <td id="detail">{memo.contactDetails}</td>
-                <td id="pur">{memo.purpose}</td>
-                <td id="timestamp">{dateobj}</td>
-                <td id="Address">{memo.walletAddress}</td>
+                <td className="tablename" id="nametable">{memo.name}</td>
+                {/* <td id="detail">{memo.contactDetails}</td>
+                <td id="pur">{memo.purpose}</td> */}
+                <td className="tabletime" id="timestamp">{dateobj}</td>
+                <td className="tableadd" id="Address">{memo.walletAddress}</td>
               </tr>
               </tbody>
             </table>
-           </div>
           </div>
         );
       })}
+      </div>
     </>
   );
 };

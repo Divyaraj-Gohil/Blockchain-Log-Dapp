@@ -2,26 +2,25 @@ table{
     width: 100%;
     border-collapse: collapse;
 }
+thead{
+  color: white;
+}
 td{
     text-align: left;
     padding: 8px;
     border: 1px solid #ddd;
     background-color: #4cffa8;
+    text-align: center;
 }
-#nametable{
-    width: 10%;
-}
-#timestamp{
-    width: 30%;
-}
-#address{
-    width: 30%;
-}
-#detail{
+ .tablename{
     width: 15%;
 }
-#pur{
-    width: 15%;
+.tabletime{
+    width: 40%;
+}
+.scroll{
+  height: 550px;
+  overflow-y: auto;
 }
 
 
