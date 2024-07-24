@@ -1,9 +1,10 @@
 import abi from "./contractJson/VisitorRecord.json";
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
-import Buy from "./components/register";
-import Memos from "./components/Memos";
-import "./App.css";
+import Register from "./components/Register.jsx"
+import Memos from "./components/Memos.jsx";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [state, setState] = useState({
@@ -11,7 +12,10 @@ function App() {
     signer: null,
     contract: null,
   });
-  const [account, setAccount] = useState("Not connected");
+  const [account, setAccount] = useState("Not connected")
+  const [visitors, setvisitors] = useState([])
+  const [update, setupdate] = useState()
+  const { contract } = state;
   useEffect(() => {
     const connectWallet = async () => {
       const contractAddress = "0x089E18E69ac03885110Cfd875EEA788f90EC0ACF";
@@ -43,28 +47,35 @@ function App() {
           setAccount(useracc);
           setState({ provider, signer, contract });
         } else {
-          alert("Please install metamask");
+          alert("Please install web3 Wallet i.e.(Metamask)");
         }
       } catch (error) {
         console.log(error);
       }
     };
     connectWallet();
-  }, []);
-  // console.log(state);
-  return (
-    <div style={{ backgroundColor: "#EFEFEF", height: "100%" }}>
-      <p
-        className="text-muted lead "
-        style={{ marginTop: "10px", marginLeft: "5px" }}
-      >
-        <big>Connected Address - {account}</big>
+  }, [account]);
+  useEffect(() => {
+    const memosMessage = async () => {
+      const visitorscon = await contract.getVisitor();
+      setvisitors(visitorscon);
+    };
+    contract && memosMessage();
+  }, [contract, update])
+
+  const updatefun = (name) => {
+    setupdate(name)
+  }
+  return (<>
+    <div className="w-[80%] max-h[100vh] mx-auto">
+      <p className="text-center my-2 text-gray-400">
+        <big className="font-semibold">Connected Address - {account}</big>
       </p>
-      <div className="container">
-        <Buy state={state} />
-        <Memos state={state} />
-      </div>
+      <Register state={state} updatefun={updatefun} />
+      <Memos visitors={visitors} />
+      <ToastContainer position="top-center" theme="dark" />
     </div>
+  </>
   );
 }
 

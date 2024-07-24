@@ -1,53 +1,39 @@
-import { useState, useEffect } from "react";
-import "./memo.css";
-const Memos = ({ state }) => {
-  const [visitors, setvisitors] = useState([]);
-  const { contract } = state;
-
-  useEffect(() => {
-    const memosMessage = async () => {
-      const visitors = await contract.getVisitor();
-      setvisitors(visitors);
-    };
-    contract && memosMessage();
-  }, [contract]);
-  const obj = visitors;
-
+const Memos = ({ visitors }) => {
   return (
     <>
-      <p style={{ textAlign: "center", marginTop: "20px" }}><big>Records</big></p>
-      <table>
-        <thead>
-          <tr>
-            <td className="tablename" style={{backgroundColor:"#4ca8ff"}}><big>Name</big></td>
-            {/* <td style={{width:"15%",backgroundColor:"#4ca8ff"}}><big>ContactDetails</big></td>
-            <td style={{width:"15%",backgroundColor:"#4ca8ff"}}><big>Purpose</big></td> */}
-            <td className="tabletime" style={{backgroundColor:"#4ca8ff"}}><big>Time-stamp</big></td>
-            <td className="tableadd" style={{backgroundColor:"#4ca8ff"}}><big>WalletAddress</big></td>
-          </tr>
-        </thead>
-      </table>
-      <div className="scroll">
-      {visitors.toReversed().map((memo) => {
-        const timestamp = BigInt(memo.timestamp);
-        const dateobj = new Date(Number(timestamp * 1000n)).toString();
-        return (
-          <div
-          key={Math.random()}>
-            <table>
-              <tbody>
+      <div className="w-full mt-10">
+        <p className="font-semibold text-center">Records</p>
+        <div className="relative shadow-md">
+          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
-                <td className="tablename" id="nametable">{memo.name}</td>
-                {/* <td id="detail">{memo.contactDetails}</td>
-                <td id="pur">{memo.purpose}</td> */}
-                <td className="tabletime" id="timestamp">{dateobj}</td>
-                <td className="tableadd" id="Address">{memo.walletAddress}</td>
+                <th scope="col" className="px-6 py-3">Name</th>
+                <th scope="col" className="px-6 py-3">Time-stamp</th>
+                <th scope="col" className="py-3">WalletAddress</th>
               </tr>
-              </tbody>
-            </table>
+            </thead>
+          </table>
+          <div className="max-h-[250px] overflow-x-auto">
+            {visitors.toReversed().map((memo) => {
+              const timestamp = BigInt(memo.timestamp);
+              const dateobj = new Date(Number(timestamp * 1000n)).toString();
+              return (
+                <div
+                  key={Math.random()}>
+                  <table className="w-full text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400">
+                    <tbody>
+                      <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                        <td scope="row" className="px-6 py-4">{memo.name}</td>
+                        <td scope="row" className="px-6 py-4">{dateobj}</td>
+                        <td scope="row" className="px-6 py-4">{memo.walletAddress}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              );
+            })}
           </div>
-        );
-      })}
+        </div>
       </div>
     </>
   );
