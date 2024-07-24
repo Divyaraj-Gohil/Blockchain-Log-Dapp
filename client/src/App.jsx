@@ -67,7 +67,7 @@ function App() {
     setupdate(name)
   }
   return (<>
-    <div className="w-[80%] max-h[100vh] mx-auto">
+    <div className="lg:w-[80%] w-[350px] max-h[100vh] mx-auto">
       <p className="text-center my-2 text-gray-400">
         <big className="font-semibold">Connected Address - {account}</big>
       </p>
