@@ -1,7 +1,7 @@
 import abi from "./contractJson/VisitorRecord.json";
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
-import Register from "./components/Register.jsx"
+import Register from "./components/register.jsx"
 import Memos from "./components/Memos.jsx";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
