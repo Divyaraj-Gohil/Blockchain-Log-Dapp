@@ -67,9 +67,9 @@ function App() {
     setupdate(name)
   }
   return (<>
-    <div className="lg:w-[80%] w-[350px] max-h[100vh] mx-auto">
+    <div className="lg:w-[80%] w-full md:h-[680px] h-full  mx-auto flex flex-col justify-center items-center">
       <p className="text-center my-2 text-gray-400">
-        <big className="font-semibold">Connected Address - {account}</big>
+        <big className="md:font-semibold">Connected Address - {account}</big>
       </p>
       <Register state={state} updatefun={updatefun} />
       <Memos visitors={visitors} />
