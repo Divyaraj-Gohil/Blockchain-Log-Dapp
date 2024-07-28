@@ -13,9 +13,7 @@ function App() {
     contract: null,
   });
   const [account, setAccount] = useState("Not connected")
-  const [visitors, setvisitors] = useState([])
   const [update, setupdate] = useState()
-  const { contract } = state;
   useEffect(() => {
     const connectWallet = async () => {
       const contractAddress = "0x089E18E69ac03885110Cfd875EEA788f90EC0ACF";
@@ -55,9 +53,11 @@ function App() {
     };
     connectWallet();
   }, [account]);
+  const [visitors, setvisitors] = useState([])
+  const { contract } = state
   useEffect(() => {
     const memosMessage = async () => {
-      const visitorscon = await contract.getVisitor();
+      const visitorscon = await contract.getVisitor()
       setvisitors(visitorscon);
     };
     contract && memosMessage();
@@ -67,10 +67,10 @@ function App() {
     setupdate(name)
   }
   return (<>
-    <div className="lg:w-[80%] w-full md:h-[680px] h-full  mx-auto flex flex-col justify-center items-center">
-      <p className="text-center my-2 text-gray-400">
-        <big className="md:font-semibold">Connected Address - {account}</big>
-      </p>
+    <div className="w-screen min-h-screen mx-auto bg-gradient-to-r from-slate-900 to-slate-700 flex flex-col justify-center items-center">
+      <h3 className="text-center my-2 text-gray-400">
+        Connected Address - {account}
+      </h3>
       <Register state={state} updatefun={updatefun} />
       <Memos visitors={visitors} />
       <ToastContainer position="top-center" theme="dark" />

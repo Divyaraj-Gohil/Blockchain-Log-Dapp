@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
 const Register = ({ state, updatefun }) => {
@@ -22,7 +22,7 @@ const Register = ({ state, updatefun }) => {
   };
   return (
     <>
-      <div className="md:w-[50%] w-full h-[40%] sm:mx-auto ml-5 flex justify-center items-center mt-10 shadow-2xl border border-t-[#3c3c3c66] rounded-md">
+      <div className="md:w-[40%] w-full bg-white flex justify-center items-center mt-3 shadow-2xl shadow-cyan-200 border border-t-[#3c3c3c66] rounded-xl">
         <form id="form" className="w-full" onSubmit={registerVisitor}>
           <div className="w-full mx-2 p-3 flex flex-col">
             <div className="m-2">
